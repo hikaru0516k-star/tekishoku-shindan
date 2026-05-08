@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>適職診断｜あなたに向いている仕事・働き方がわかる無料診断</title>
+  <meta name="description" content="30問の質問に答えるだけで、あなたに向いている仕事・働き方・転職タイプがわかる無料の適職診断です。事務、営業、IT、Web、クリエイター、接客、専門職など幅広く診断できます。" />
+  <meta name="keywords" content="適職診断,仕事診断,転職診断,向いてる仕事,無料診断,キャリア診断,職業診断,未経験転職" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://your-domain.com/" />
+
+  <meta property="og:title" content="適職診断｜あなたに向いている仕事がわかる" />
+  <meta property="og:description" content="30問であなたの適職・向いている働き方・おすすめ職種を診断。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/" />
+  <meta property="og:image" content="https://your-domain.com/ogp.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "適職診断",
+    "description": "30問であなたに向いている仕事・働き方がわかる無料診断サイト",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --main: #2563eb;
+      --sub: #7c3aed;
+      --bg: #f8fafc;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --line: #e5e7eb;
+      --good: #16a34a;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Meiryo", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.16), transparent 32%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.16), transparent 32%),
+        var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 250, 252, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 36px 20px 80px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+      padding: 46px 0 36px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.08;
+      margin: 0 0 18px;
+      letter-spacing: -0.06em;
+    }
+
+    .lead {
+      font-size: 17px;
+      color: #374151;
+      margin: 0 0 24px;
+    }
+
+    .hero-card,
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 26px;
+    }
+
+    .mini-title {
+      font-size: 15px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    button,
+    .btn {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 900;
+      font-size: 15px;
+      text-decoration: none;
+      transition: 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--main), var(--sub));
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.28);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    button:hover,
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.92;
+    }
+
+    .section {
+      margin-top: 34px;
+    }
+
+    .section h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+      margin: 0 0 14px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .feature {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #eff6ff;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    #diagnosis {
+      scroll-margin-top: 90px;
+    }
+
+    .diagnosis-box {
+      padding: 26px;
+      margin-top: 20px;
+    }
+
+    .progress-wrap {
+      background: #e5e7eb;
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--main), var(--sub));
+      transition: width 0.2s ease;
+    }
+
+    .question-meta {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .question {
+      font-size: clamp(22px, 4vw, 34px);
+      line-height: 1.35;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
+    }
+
+    .answers {
+      display: grid;
+      gap: 12px;
+    }
+
+    .answer {
+      width: 100%;
+      justify-content: flex-start;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--text);
+      text-align: left;
+      padding: 16px 18px;
+      font-weight: 800;
+    }
+
+    .answer:hover {
+      border-color: var(--main);
+      background: #eff6ff;
+    }
+
+    .back-btn {
+      margin-top: 16px;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .result-box {
+      padding: 30px;
+      margin-top: 20px;
+    }
+
+    .result-tag {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #ecfeff;
+      color: #155e75;
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .result-title {
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.1;
+      font-weight: 950;
+      letter-spacing: -0.06em;
+      margin: 0 0 12px;
+    }
+
+    .result-desc {
+      color: #374151;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 22px 0;
+    }
+
+    .score-card {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .score-card strong {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .score-line {
+      margin-top: 8px;
+      height: 8px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .score-line span {
+      display: block;
+      height: 100%;
+      background: linear-gradient(90deg, var(--main), var(--sub));
+    }
+
+    .jobs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .job {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      font-weight: 900;
+    }
+
+    .ad-box {
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border: 1px solid #dbeafe;
+    }
+
+    .ad-box h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+    }
+
+    .ad-box p {
+      color: #374151;
+      margin: 0 0 14px;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .affiliate-link {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 15px;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .affiliate-link small {
+      display: block;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .type-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .type-card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .type-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    details p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 20px;
+      color: var(--muted);
+      font-size: 13px;
+      background: #fff;
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.5);
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      max-width: 760px;
+      max-height: 82vh;
+      overflow: auto;
+      background: #fff;
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+    }
+
+    .close {
+      float: right;
+      background: #f3f4f6;
+      color: var(--text);
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .features,
+      .type-grid,
+      .jobs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        padding: 24px 14px 60px;
+      }
+
+      .hero-card,
+      .card,
+      .diagnosis-box,
+      .result-box {
+        border-radius: 22px;
+        padding: 20px;
+      }
+
+      .features,
+      .type-grid,
+      .jobs,
+      .score-grid,
+      .link-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-row {
+        flex-direction: column;
+      }
+
+      button,
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">適職診断</div>
+      <nav class="nav-links">
+        <a href="#diagnosis">診断する</a>
+        <a href="#types">診断タイプ</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="badge">無料・登録不要・30問で診断</div>
+        <h1>あなたに向いている仕事、実はもう決まっているかも。</h1>
+        <p class="lead">
+          性格・得意な働き方・人間関係・ストレス耐性から、あなたに合う職種とキャリアの方向性を診断します。
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#diagnosis">今すぐ診断する</a>
+          <a class="btn btn-secondary" href="#types">タイプを見る</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="mini-title">この診断でわかること</div>
+        <p class="section-desc">
+          向いている仕事、避けた方がいい働き方、転職で重視すべきポイント、おすすめ職種をまとめて表示します。
+        </p>
+        <div class="stat-grid">
+          <div class="stat"><strong>30</strong><span>診断質問</span></div>
+          <div class="stat"><strong>12</strong><span>診断タイプ</span></div>
+          <div class="stat"><strong>60+</strong><span>おすすめ職種</span></div>
+          <div class="stat"><strong>0円</strong><span>完全無料</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>適職を探す前に、自分の勝ちパターンを知ろう</h2>
+      <p class="section-desc">
+        仕事選びで大事なのは「人気職種」ではなく、自分が無理なく続けられて成果を出しやすい環境を選ぶことです。
+      </p>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🧠</div>
+          <h3>性格から診断</h3>
+          <p>集中力、対人傾向、決断力、安定志向などを分析します。</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💼</div>
+          <h3>職種に変換</h3>
+          <p>営業、事務、IT、Web、接客、専門職などに落とし込みます。</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🚀</div>
+          <h3>転職導線まで</h3>
+          <p>未経験から目指しやすい仕事探しの方向性も表示します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnosis" class="section">
+      <h2>無料適職診断</h2>
+      <p class="section-desc">直感で選んでください。深く考えすぎない方が正確に出ます。</p>
+
+      <div id="startBox" class="diagnosis-box card">
+        <h3>30問であなたの適職タイプを診断</h3>
+        <p class="section-desc">
+          回答内容は保存されません。あなたの性格・働き方・得意分野からおすすめ職種を表示します。
+        </p>
+        <button class="btn-primary" onclick="startDiagnosis()">診断を開始する</button>
+      </div>
+
+      <div id="questionBox" class="diagnosis-box card hidden">
+        <div class="progress-wrap">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+        <div id="questionMeta" class="question-meta"></div>
+        <div id="questionText" class="question"></div>
+        <div id="answers" class="answers"></div>
+        <button class="back-btn" onclick="goBack()">ひとつ前に戻る</button>
+      </div>
+
+      <div id="resultBox" class="result-box card hidden"></div>
+    </section>
+
+    <section id="types" class="section">
+      <h2>診断タイプ一覧</h2>
+      <p class="section-desc">あなたはどのタイプに近い？全12タイプに分類します。</p>
+      <div class="type-grid" id="typeGrid"></div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2>よくある質問</h2>
+      <div class="faq">
+        <details>
+          <summary>この診断は無料ですか？</summary>
+          <p>無料で利用できます。会員登録も不要です。</p>
+        </details>
+        <details>
+          <summary>診断結果は保存されますか？</summary>
+          <p>このページ内で計算しているだけなので、個人情報や回答内容は保存されません。</p>
+        </details>
+        <details>
+          <summary>診断結果だけで転職先を決めてもいいですか？</summary>
+          <p>診断はあくまで参考です。実際の転職では求人内容、給与、勤務地、働き方、社風も確認してください。</p>
+        </details>
+        <details>
+          <summary>未経験でも向いている仕事はありますか？</summary>
+          <p>あります。事務、営業、販売、ITサポート、Webマーケ、動画編集などは未経験求人もあります。</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© 2026 適職診断</div>
+      <div class="footer-links">
+        <a href="#" onclick="openModal('privacy'); return false;">プライバシーポリシー</a>
+        <a href="#" onclick="openModal('terms'); return false;">利用規約</a>
+        <a href="#" onclick="openModal('operator'); return false;">運営者情報</a>
+        <a href="#" onclick="openModal('contact'); return false;">お問い合わせ</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal()">閉じる</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const types = {
+      support: {
+        name: "縁の下の力持ち型",
+        catch: "人を支えることで評価される安定サポートタイプ",
+        desc: "あなたは周囲を観察し、必要なことを先回りして整える力があります。派手に目立つより、誰かを支えたり、仕組みを整えたりする仕事で力を発揮しやすいタイプです。",
+        jobs: ["一般事務", "営業事務", "総務", "人事アシスタント", "カスタマーサポート", "医療事務"],
+        avoid: "成果を強く競わされる環境、毎日ノルマに追われる仕事。",
+        advice: "安定性・教育体制・人間関係を重視して選ぶと長続きしやすいです。",
+        keywords: ["事務", "サポート", "安定"]
+      },
+      sales: {
+        name: "突破力営業型",
+        catch: "人と話しながら成果を作るコミュニケーションタイプ",
+        desc: "あなたは人と関わる中で力を発揮しやすく、相手の反応を見ながら動けるタイプです。評価が数字で見える仕事や、努力が成果に直結する環境と相性が良いです。",
+        jobs: ["法人営業", "個人営業", "人材営業", "不動産営業", "キャリアアドバイザー", "販売職"],
+        avoid: "一日中ひとりで黙々と作業する仕事。",
+        advice: "商材の好き嫌いと評価制度を必ず確認しましょう。",
+        keywords: ["営業", "接客", "成果"]
+      },
+      creator: {
+        name: "感性クリエイター型",
+        catch: "アイデアと表現で価値を作る創作タイプ",
+        desc: "あなたは決まった正解をなぞるより、自分の発想やセンスを形にする仕事で力を出しやすいです。動画、デザイン、文章、企画などで強みを発揮します。",
+        jobs: ["動画編集者", "Webデザイナー", "ライター", "SNS運用", "広告制作", "コンテンツ企画"],
+        avoid: "裁量が少なく、細かいルールだけで動く仕事。",
+        advice: "ポートフォリオを作ると一気に仕事につながりやすくなります。",
+        keywords: ["動画編集", "デザイン", "SNS"]
+      },
+      engineer: {
+        name: "論理構築エンジニア型",
+        catch: "仕組みを理解して積み上げる分析タイプ",
+        desc: "あなたは物事を分解して考え、原因や構造を理解する力があります。IT、データ、設計、改善系の仕事と相性が良いタイプです。",
+        jobs: ["ITエンジニア", "Webエンジニア", "社内SE", "データ分析", "テスター", "ITサポート"],
+        avoid: "感情論だけで方針が変わる環境。",
+        advice: "未経験ならITサポート、テスター、Web制作から入るのもありです。",
+        keywords: ["IT", "論理", "分析"]
+      },
+      specialist: {
+        name: "職人気質スペシャリスト型",
+        catch: "ひとつの技術を磨いて信頼される専門職タイプ",
+        desc: "あなたは広く浅くより、特定分野を深く磨くことで力を発揮します。経験が積み上がる仕事、資格や技術が武器になる仕事に向いています。",
+        jobs: ["整備士", "施工管理", "調理師", "介護職", "技術職", "士業補助"],
+        avoid: "毎日やることが変わりすぎる仕事。",
+        advice: "資格取得支援や研修制度がある会社を選ぶと伸びやすいです。",
+        keywords: ["専門職", "技術", "資格"]
+      },
+      manager: {
+        name: "采配マネジメント型",
+        catch: "人と物事を動かして成果を作るリーダータイプ",
+        desc: "あなたは全体を見て優先順位を決めたり、人を巻き込んで進めたりする力があります。リーダー、店長、マネージャー、企画進行役に向いています。",
+        jobs: ["店長候補", "マネージャー", "プロジェクト管理", "営業リーダー", "人事", "企画職"],
+        avoid: "指示待ちだけを求められる仕事。",
+        advice: "裁量がある環境ほどやりがいを感じやすいです。",
+        keywords: ["管理", "リーダー", "企画"]
+      },
+      service: {
+        name: "共感接客サービス型",
+        catch: "相手の気持ちを読み取り満足を作る対人タイプ",
+        desc: "あなたは相手の表情や空気を読む力があります。人に喜んでもらうこと、直接ありがとうと言われる仕事でモチベーションが上がりやすいです。",
+        jobs: ["販売職", "ホテルスタッフ", "美容系接客", "受付", "飲食サービス", "カウンセラー補助"],
+        avoid: "人とほとんど関わらない孤独な仕事。",
+        advice: "客層・勤務時間・クレーム対応の量は事前に確認しましょう。",
+        keywords: ["接客", "販売", "サービス"]
+      },
+      independent: {
+        name: "自由独立ワーク型",
+        catch: "縛られすぎず自分のペースで伸びる自走タイプ",
+        desc: "あなたは細かく管理されるより、自分で考えて動ける環境に向いています。副業、フリーランス、成果型の働き方とも相性があります。",
+        jobs: ["フリーランス", "Webマーケター", "動画編集", "ライター", "営業代行", "個人事業"],
+        avoid: "ルールが多く裁量がほとんどない職場。",
+        advice: "最初は副業や業務委託から小さく始めるのがおすすめです。",
+        keywords: ["副業", "独立", "自由"]
+      },
+      stable: {
+        name: "堅実安定キャリア型",
+        catch: "長く安心して働ける環境を重視する安定タイプ",
+        desc: "あなたは大きなリスクを取るより、安定した環境で着実に力を伸ばす方が合っています。福利厚生、休日、教育体制を重視すると満足度が上がります。",
+        jobs: ["事務職", "公務員系", "インフラ職", "経理", "労務", "社内サポート"],
+        avoid: "収入や仕事内容が毎月大きく変わる仕事。",
+        advice: "給与だけでなく、残業時間・休日・離職率も確認しましょう。",
+        keywords: ["安定", "事務", "福利厚生"]
+      },
+      marketing: {
+        name: "戦略マーケティング型",
+        catch: "数字と心理を読んで伸ばす企画分析タイプ",
+        desc: "あなたは人の行動や数字の変化に興味を持ちやすいタイプです。SNS、広告、SEO、販売戦略など、改善を積み重ねる仕事と相性が良いです。",
+        jobs: ["Webマーケター", "SNS運用", "広告運用", "SEO担当", "EC運営", "商品企画"],
+        avoid: "改善提案ができず、同じ作業だけを続ける仕事。",
+        advice: "自分でSNSやブログを運用すると実績になります。",
+        keywords: ["Webマーケ", "SNS", "広告"]
+      },
+      research: {
+        name: "冷静分析リサーチ型",
+        catch: "調べて考えて正解に近づく知的探求タイプ",
+        desc: "あなたは勢いで動くより、情報を集めて比較し、納得してから進むタイプです。調査、分析、品質管理、資料作成系の仕事で強みが出ます。",
+        jobs: ["リサーチャー", "品質管理", "データ入力", "資料作成", "経理補助", "分析アシスタント"],
+        avoid: "スピードだけを求められ、確認時間がない仕事。",
+        advice: "正確性を評価してくれる職場を選びましょう。",
+        keywords: ["分析", "調査", "正確性"]
+      },
+      challenge: {
+        name: "挑戦ベンチャー型",
+        catch: "変化の中で成長するスピード重視タイプ",
+        desc: "あなたは同じことをずっと続けるより、変化や成長を感じられる環境で燃えやすいです。ベンチャー、新規事業、成果主義の環境と相性があります。",
+        jobs: ["ベンチャー営業", "新規事業", "スタートアップ", "Webマーケ", "事業企画", "カスタマーサクセス"],
+        avoid: "年功序列で変化が少ない環境。",
+        advice: "成長環境は魅力ですが、労働時間や教育体制も必ず確認しましょう。",
+        keywords: ["成長", "挑戦", "ベンチャー"]
+      }
+    };
+
+    const questions = [
+      { text: "仕事で一番大事にしたいのは？", answers: [
+        ["安定して長く働けること", ["stable", "support"]],
+        ["成果が評価されること", ["sales", "challenge"]],
+        ["自由に働けること", ["independent", "creator"]],
+        ["専門性が身につくこと", ["specialist", "engineer"]]
+      ]},
+      { text: "得意だと思うのは？", answers: [
+        ["人の話を聞く", ["service", "support"]],
+        ["数字やデータを見る", ["research", "marketing"]],
+        ["アイデアを出す", ["creator", "marketing"]],
+        ["仕組みを理解する", ["engineer", "specialist"]]
+      ]},
+      { text: "苦手に感じやすい環境は？", answers: [
+        ["ノルマが強い環境", ["stable", "support"]],
+        ["変化が少ない環境", ["challenge", "independent"]],
+        ["人と話さない環境", ["sales", "service"]],
+        ["感情論が多い環境", ["engineer", "research"]]
+      ]},
+      { text: "褒められると嬉しいのは？", answers: [
+        ["気が利くね", ["support", "service"]],
+        ["説明がわかりやすいね", ["sales", "manager"]],
+        ["センスあるね", ["creator", "marketing"]],
+        ["正確だね", ["research", "engineer"]]
+      ]},
+      { text: "休日に近い過ごし方は？", answers: [
+        ["動画やSNSを見る", ["creator", "marketing"]],
+        ["勉強や調べ物をする", ["research", "engineer"]],
+        ["友達や人と会う", ["sales", "service"]],
+        ["ゆっくり休む", ["stable", "support"]]
+      ]},
+      { text: "働き方として理想に近いのは？", answers: [
+        ["会社で安定して働く", ["stable", "support"]],
+        ["成果で収入を上げる", ["sales", "challenge"]],
+        ["在宅や副業もしたい", ["independent", "creator"]],
+        ["専門職として手に職をつけたい", ["specialist", "engineer"]]
+      ]},
+      { text: "新しい仕事を覚える時は？", answers: [
+        ["マニュアルがあると安心", ["support", "stable"]],
+        ["実践しながら覚えたい", ["sales", "challenge"]],
+        ["自分で調べながら覚えたい", ["research", "engineer"]],
+        ["自由に試したい", ["creator", "independent"]]
+      ]},
+      { text: "人間関係で得意なのは？", answers: [
+        ["相手に合わせる", ["service", "support"]],
+        ["場を盛り上げる", ["sales", "manager"]],
+        ["距離感を保つ", ["research", "engineer"]],
+        ["自分の世界観を出す", ["creator", "independent"]]
+      ]},
+      { text: "ストレスを感じやすいのは？", answers: [
+        ["予定が急に変わること", ["stable", "research"]],
+        ["誰とも話せないこと", ["sales", "service"]],
+        ["細かく管理されること", ["independent", "challenge"]],
+        ["意味のない作業をすること", ["engineer", "marketing"]]
+      ]},
+      { text: "向いていそうなのは？", answers: [
+        ["裏方で支える仕事", ["support", "stable"]],
+        ["お客さんと関わる仕事", ["sales", "service"]],
+        ["作る・発信する仕事", ["creator", "marketing"]],
+        ["技術や知識を使う仕事", ["engineer", "specialist"]]
+      ]},
+      { text: "仕事で伸ばしたい力は？", answers: [
+        ["コミュニケーション力", ["sales", "service"]],
+        ["専門スキル", ["specialist", "engineer"]],
+        ["企画力・発信力", ["creator", "marketing"]],
+        ["管理力・調整力", ["manager", "support"]]
+      ]},
+      { text: "収入アップの方法として魅力的なのは？", answers: [
+        ["昇給・賞与で上げたい", ["stable", "support"]],
+        ["成果報酬で上げたい", ["sales", "challenge"]],
+        ["副業で増やしたい", ["independent", "creator"]],
+        ["資格や技術で上げたい", ["specialist", "engineer"]]
+      ]},
+      { text: "チームでの立ち位置は？", answers: [
+        ["調整役", ["support", "manager"]],
+        ["前に出る役", ["sales", "challenge"]],
+        ["アイデア役", ["creator", "marketing"]],
+        ["分析役", ["research", "engineer"]]
+      ]},
+      { text: "ミスを防ぐためにすることは？", answers: [
+        ["チェックリストを作る", ["support", "research"]],
+        ["人に確認する", ["service", "support"]],
+        ["仕組みで防ぐ", ["engineer", "manager"]],
+        ["経験で感覚を磨く", ["specialist", "creator"]]
+      ]},
+      { text: "会社選びで重視したいのは？", answers: [
+        ["休日・残業の少なさ", ["stable", "support"]],
+        ["給料・評価制度", ["sales", "challenge"]],
+        ["仕事内容の面白さ", ["creator", "marketing"]],
+        ["スキルが身につくか", ["engineer", "specialist"]]
+      ]},
+      { text: "自分に近いのは？", answers: [
+        ["コツコツ型", ["stable", "research"]],
+        ["行動型", ["sales", "challenge"]],
+        ["発想型", ["creator", "independent"]],
+        ["探求型", ["engineer", "specialist"]]
+      ]},
+      { text: "仕事で避けたいのは？", answers: [
+        ["毎日強いプレッシャー", ["stable", "support"]],
+        ["単純作業だけ", ["challenge", "marketing"]],
+        ["人間関係が濃すぎる", ["research", "engineer"]],
+        ["自由がないこと", ["independent", "creator"]]
+      ]},
+      { text: "向いている学び方は？", answers: [
+        ["研修で教えてもらう", ["support", "stable"]],
+        ["現場で覚える", ["sales", "service"]],
+        ["独学で調べる", ["engineer", "research"]],
+        ["作品を作る", ["creator", "marketing"]]
+      ]},
+      { text: "仕事の成果が出た時、嬉しいのは？", answers: [
+        ["人の役に立てたと感じる", ["service", "support"]],
+        ["数字で結果が見える", ["sales", "marketing"]],
+        ["作品や成果物が残る", ["creator", "specialist"]],
+        ["問題を解決できた", ["engineer", "research"]]
+      ]},
+      { text: "将来の理想に近いのは？", answers: [
+        ["安定した会社員", ["stable", "support"]],
+        ["高収入を狙う会社員", ["sales", "manager"]],
+        ["在宅・副業・独立", ["independent", "creator"]],
+        ["専門家として働く", ["specialist", "engineer"]]
+      ]},
+      { text: "自信がある方なのは？", answers: [
+        ["丁寧さ", ["support", "research"]],
+        ["会話力", ["sales", "service"]],
+        ["発想力", ["creator", "marketing"]],
+        ["継続力", ["stable", "specialist"]]
+      ]},
+      { text: "仕事の進め方は？", answers: [
+        ["計画してから動く", ["research", "stable"]],
+        ["まず動いてみる", ["sales", "challenge"]],
+        ["気分が乗ると一気に進む", ["creator", "independent"]],
+        ["仕組みを作って進める", ["engineer", "manager"]]
+      ]},
+      { text: "上司に求めるものは？", answers: [
+        ["丁寧な指導", ["support", "stable"]],
+        ["裁量をくれること", ["independent", "challenge"]],
+        ["正当に評価してくれること", ["sales", "manager"]],
+        ["論理的な説明", ["engineer", "research"]]
+      ]},
+      { text: "興味がある分野は？", answers: [
+        ["人材・教育", ["sales", "support"]],
+        ["IT・Web", ["engineer", "marketing"]],
+        ["美容・接客", ["service", "creator"]],
+        ["ものづくり・専門技術", ["specialist", "research"]]
+      ]},
+      { text: "仕事で強みになりそうなのは？", answers: [
+        ["相手に合わせられる", ["service", "support"]],
+        ["目標に向かって動ける", ["sales", "challenge"]],
+        ["自分で考えて作れる", ["creator", "independent"]],
+        ["細かく確認できる", ["research", "engineer"]]
+      ]},
+      { text: "苦手な指示は？", answers: [
+        ["とにかく売って", ["stable", "support"]],
+        ["自由にやって", ["research", "stable"]],
+        ["ずっと同じことだけやって", ["challenge", "creator"]],
+        ["理由はいいからやって", ["engineer", "research"]]
+      ]},
+      { text: "理想の評価は？", answers: [
+        ["勤務態度や継続力", ["stable", "support"]],
+        ["売上や成果", ["sales", "challenge"]],
+        ["作品やアイデア", ["creator", "marketing"]],
+        ["知識や正確性", ["engineer", "research"]]
+      ]},
+      { text: "今後身につけたいのは？", answers: [
+        ["PC・事務スキル", ["support", "stable"]],
+        ["営業・交渉スキル", ["sales", "manager"]],
+        ["動画・デザイン・SNS", ["creator", "marketing"]],
+        ["プログラミング・分析", ["engineer", "research"]]
+      ]},
+      { text: "働く上で一番嫌なのは？", answers: [
+        ["人間関係が悪い", ["support", "service"]],
+        ["給料が上がらない", ["sales", "challenge"]],
+        ["成長できない", ["marketing", "engineer"]],
+        ["自由がなさすぎる", ["independent", "creator"]]
+      ]},
+      { text: "最後に、今の気持ちに近いのは？", answers: [
+        ["安心できる仕事を見つけたい", ["stable", "support"]],
+        ["稼げる仕事に挑戦したい", ["sales", "challenge"]],
+        ["好きなことを仕事にしたい", ["creator", "independent"]],
+        ["手に職をつけたい", ["engineer", "specialist"]]
+      ]}
+    ];
+
+    const affiliateLinks = [
+      {
+        title: "未経験OKの求人を探す",
+        desc: "事務・営業・IT・販売など幅広く探す",
+        url: "https://example.com/affiliate-job"
+      },
+      {
+        title: "転職エージェントに相談する",
+        desc: "自分に合う求人を紹介してもらう",
+        url: "https://example.com/affiliate-agent"
+      },
+      {
+        title: "IT・Web系の仕事を探す",
+        desc: "エンジニア・Webマーケ・動画編集向け",
+        url: "https://example.com/affiliate-web"
+      },
+      {
+        title: "適職から求人を比較する",
+        desc: "複数サービスで条件を見比べる",
+        url: "https://example.com/affiliate-compare"
+      }
+    ];
+
+    let currentQuestion = 0;
+    let scores = {};
+    let history = [];
+
+    function initScores() {
+      scores = {};
+      Object.keys(types).forEach(key => scores[key] = 0);
+    }
+
+    function startDiagnosis() {
+      initScores();
+      currentQuestion = 0;
+      history = [];
+      document.getElementById("startBox").classList.add("hidden");
+      document.getElementById("resultBox").classList.add("hidden");
+      document.getElementById("questionBox").classList.remove("hidden");
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = questions[currentQuestion];
+      const percent = Math.round((currentQuestion / questions.length) * 100);
+      document.getElementById("progressBar").style.width = percent + "%";
+      document.getElementById("questionMeta").textContent = `Q${currentQuestion + 1} / ${questions.length}`;
+      document.getElementById("questionText").textContent = q.text;
+
+      const answers = document.getElementById("answers");
+      answers.innerHTML = "";
+
+      q.answers.forEach(answer => {
+        const btn = document.createElement("button");
+        btn.className = "answer";
+        btn.textContent = answer[0];
+        btn.onclick = () => selectAnswer(answer[1]);
+        answers.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(keys) {
+      history.push(keys);
+      keys.forEach(key => scores[key] += 2);
+
+      currentQuestion++;
+
+      if (currentQuestion >= questions.length) {
+        showResult();
+      } else {
+        renderQuestion();
+      }
+    }
+
+    function goBack() {
+      if (currentQuestion === 0 || history.length === 0) return;
+
+      const last = history.pop();
+      last.forEach(key => scores[key] -= 2);
+      currentQuestion--;
+      renderQuestion();
+    }
+
+    function showResult() {
+      document.getElementById("questionBox").classList.add("hidden");
+      document.getElementById("progressBar").style.width = "100%";
+
+      const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+      const topKey = sorted[0][0];
+      const top = types[topKey];
+      const maxScore = Math.max(...Object.values(scores));
+      const matchPercent = Math.min(98, Math.max(72, Math.round((scores[topKey] / (questions.length * 2)) * 100 + 45)));
+
+      const topScores = sorted.slice(0, 6).map(([key, value]) => {
+        const percent = maxScore === 0 ? 0 : Math.round((value / maxScore) * 100);
+        return `
+          <div class="score-card">
+            <strong><span>${types[key].name}</span><span>${percent}%</span></strong>
+            <div class="score-line"><span style="width:${percent}%"></span></div>
+          </div>
+        `;
+      }).join("");
+
+      const jobHtml = top.jobs.map(job => `<div class="job">${job}</div>`).join("");
+
+      const linksHtml = affiliateLinks.map(link => `
+        <a class="affiliate-link" href="${link.url}" target="_blank" rel="nofollow sponsored noopener">
+          ${link.title}
+          <small>${link.desc}</small>
+        </a>
+      `).join("");
+
+      const shareText = encodeURIComponent(`私の適職診断結果は「${top.name}」でした！あなたも診断してみて👇`);
+      const shareUrl = encodeURIComponent(location.href);
+      const xUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+
+      document.getElementById("resultBox").innerHTML = `
+        <div class="result-tag">診断結果｜相性度 ${matchPercent}%</div>
+        <h2 class="result-title">${top.name}</h2>
+        <p class="result-desc"><strong>${top.catch}</strong><br>${top.desc}</p>
+
+        <h3>あなたに向いている仕事</h3>
+        <div class="jobs">${jobHtml}</div>
+
+        <h3>避けた方がいい働き方</h3>
+        <p class="section-desc">${top.avoid}</p>
+
+        <h3>転職・仕事選びのアドバイス</h3>
+        <p class="section-desc">${top.advice}</p>
+
+        <h3>あなたの傾向スコア</h3>
+        <div class="score-grid">${topScores}</div>
+
+        <div class="ad-box">
+          <h3>このタイプに合う求人を探す</h3>
+          <p>診断結果を参考に、未経験OKの求人や転職サービスを比較してみましょう。</p>
+          <div class="link-grid">${linksHtml}</div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-primary" href="${xUrl}" target="_blank" rel="noopener">Xで結果をシェア</a>
+          <button class="btn-secondary" onclick="startDiagnosis()">もう一度診断する</button>
+        </div>
+      `;
+
+      document.getElementById("resultBox").classList.remove("hidden");
+      document.getElementById("resultBox").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function renderTypes() {
+      const grid = document.getElementById("typeGrid");
+      grid.innerHTML = Object.values(types).map(type => `
+        <div class="type-card">
+          <h3>${type.name}</h3>
+          <p>${type.catch}</p>
+        </div>
+      `).join("");
+    }
+
+    function openModal(type) {
+      const body = document.getElementById("modalBody");
+
+      const contents = {
+        privacy: `
+          <h2>プライバシーポリシー</h2>
+          <p>当サイトでは、診断機能の提供およびサイト改善のため、アクセス解析ツールを利用する場合があります。</p>
+          <p>診断結果や回答内容は、個人を特定できる形では保存されません。</p>
+          <p>広告・アフィリエイトリンクを掲載する場合があります。リンク先の商品・サービスについては各提供会社の規約をご確認ください。</p>
+        `,
+        terms: `
+          <h2>利用規約</h2>
+          <p>当サイトの診断結果は、職業選択や転職活動の参考情報として提供しています。</p>
+          <p>診断結果の正確性、完全性、特定の成果を保証するものではありません。</p>
+          <p>実際の転職・就職判断は、ご自身の責任で行ってください。</p>
+        `,
+        operator: `
+          <h2>運営者情報</h2>
+          <p>サイト名：適職診断</p>
+          <p>運営者：適職診断運営</p>
+          <p>内容：仕事・転職・キャリアに関する診断コンテンツの提供</p>
+        `,
+        contact: `
+          <h2>お問い合わせ</h2>
+          <p>お問い合わせは以下のメールアドレスまでお願いいたします。</p>
+          <p>example@example.com</p>
+          <p>※実際に使うメールアドレスに変更してください。</p>
+        `
+      };
+
+      body.innerHTML = contents[type];
+      document.getElementById("modal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("modal").classList.add("hidden");
+    }
+
+    window.addEventListener("click", function(e) {
+      const modal = document.getElementById("modal");
+      if (e.target === modal) closeModal();
+    });
+
+    renderTypes();
+  </script>
+</body>
+</html>
