@@ -230,6 +230,12 @@
       background:#eff6ff;
     }
 
+    .mode-card.selected{
+      border-color:var(--main);
+      background:#eff6ff;
+      box-shadow:0 10px 24px rgba(37,99,235,.14);
+    }
+
     .mode-card strong{
       display:block;
       font-size:18px;
@@ -470,8 +476,18 @@
     <p class="section-desc">直感で選んでください。深く考えすぎない方が自然な結果が出やすいです。</p>
 
     <div id="startBox" class="diagnosis-box card">
-      <h3>診断モードを選んでください</h3>
-      <p class="section-desc">SNS流入には5問診断、しっかり診断したい人には30問診断がおすすめです。</p>
+      <h3>性別と診断モードを選んでください</h3>
+      <p class="section-desc">性別を選ぶと、診断結果に表示する転職サービスをより自然に出し分けます。</p>
+      <div class="mode-select" style="margin-bottom:14px;">
+        <div id="genderMale" class="mode-card" onclick="setGender('male')">
+          <strong>男性向け</strong>
+          <p class="section-desc">営業・IT・高収入・独立系をやや多めに表示。</p>
+        </div>
+        <div id="genderFemale" class="mode-card" onclick="setGender('female')">
+          <strong>女性向け</strong>
+          <p class="section-desc">事務・在宅・安定・サポート系をやや多めに表示。</p>
+        </div>
+      </div>
       <div class="mode-select">
         <div class="mode-card" onclick="startDiagnosis('short')">
           <strong>5問かんたん診断</strong>
@@ -610,21 +626,44 @@ function q(text,answers){return{text,answers};}
   ここを実際のアフィリンクに変更。
   A8、もしも、アクセストレードなどで取得したURLを入れる。
 */
-const affiliateLinks=[
-  {title:"未経験OKの求人を探す",desc:"事務・営業・IT・販売など幅広く比較",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+G7GTMA+3SPO+7RUL6P"},
-  {title:"自分に合う働き方を相談する",desc:"適職・転職の方向性をプロに相談",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+G9UK1E+5O7E+BXB8X"},
-  {title:"キャリアアップ求人をチェック",desc:"今より条件の良い仕事を探したい人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+GGEBOY+47GS+5ZMCH"},
-  {title:"IT・Web系の仕事を探す",desc:"在宅・Web・IT系に興味がある人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+G5OISY+3IZO+I6D3L"},
-  {title:"20代・未経験転職を探す",desc:"初めての転職や第二新卒にもおすすめ",url:"https://px.a8.net/svt/ejp?a8mat=4B3LMU+DOYXO2+5BJK+60H7L"},
-  {title:"事務・サポート系の仕事を見る",desc:"安定重視・サポート職に向いている人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+31JS36+5BJ0+5Z6WX"},
-  {title:"年収アップ転職を相談する",desc:"営業・企画・成長環境で伸ばしたい人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+2SMA0I+4BB4+62MDD"}
+const affiliateCampaigns=[
+  {id:"general01",title:"未経験OKの求人を探す",desc:"事務・営業・IT・販売など幅広く比較",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+G7GTMA+3SPO+7RUL6P",gender:["male","female","all"],types:["support","sales","stable","clerical","advisor","service"]},
+  {id:"agent01",title:"自分に合う働き方を相談する",desc:"適職・転職の方向性をプロに相談",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+G9UK1E+5O7E+BXB8X",gender:["male","female","all"],types:["support","advisor","stable","manager","research"]},
+  {id:"career01",title:"キャリアアップ求人をチェック",desc:"今より条件の良い仕事を探したい人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+GGEBOY+47GS+5ZMCH",gender:["male","female","all"],types:["sales","challenge","manager","marketing","entrepreneur"]},
+  {id:"web01",title:"IT・Web系の仕事を探す",desc:"在宅・Web・IT系に興味がある人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+G5OISY+3IZO+I6D3L",gender:["male","female","all"],types:["engineer","remote","creator","marketing","independent"]},
+  {id:"young01",title:"20代・未経験転職を探す",desc:"初めての転職や第二新卒にもおすすめ",url:"https://px.a8.net/svt/ejp?a8mat=4B3LMU+DOYXO2+5BJK+60H7L",gender:["male","female","all"],types:["challenge","sales","support","service","advisor","stable"]},
+  {id:"office01",title:"事務・サポート系の仕事を見る",desc:"安定重視・サポート職に向いている人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+31JS36+5BJ0+5Z6WX",gender:["female","all"],types:["support","clerical","stable","research","advisor"]},
+  {id:"income01",title:"年収アップ転職を相談する",desc:"営業・企画・成長環境で伸ばしたい人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+2SMA0I+4BB4+62MDD",gender:["male","all"],types:["sales","challenge","manager","entrepreneur","marketing"]},
+  {id:"sales01",title:"営業・成長企業の求人を見る",desc:"成果で評価されたい人・収入を伸ばしたい人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+31JS36+5BJ0+60H7L",gender:["male","all"],types:["sales","challenge","manager","entrepreneur"]},
+  {id:"remote01",title:"在宅・IT/Web系の働き方を見る",desc:"リモート・Webスキル・自由な働き方に興味がある人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5RSAWI+4RPO+5ZEMP",gender:["male","female","all"],types:["remote","engineer","creator","marketing","independent","entrepreneur"]},
+  {id:"stable01",title:"安定して働ける求人を探す",desc:"休日・残業・福利厚生を重視したい人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+71MOHE+5PWS+BXB8X",gender:["female","all"],types:["stable","support","clerical","research","advisor","service"]},
+  {id:"women01",title:"女性向けの転職サポートを見る",desc:"事務・サポート・安定志向の働き方を探したい人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+72TJOY+47GS+HVNAP",gender:["female","all"],types:["clerical","support","stable","service","advisor","research"]}
 ];
+
+function getAffiliateLinks(typeKey){
+  const preferred=affiliateCampaigns.filter(l=>l.types.includes(typeKey) && l.gender.includes(currentGender));
+  const fallback=affiliateCampaigns.filter(l=>l.types.includes(typeKey) || l.gender.includes(currentGender));
+  const mixed=[...preferred,...fallback,...affiliateCampaigns];
+  const seen=new Set();
+  return mixed.filter(l=>{
+    if(seen.has(l.id))return false;
+    seen.add(l.id);
+    return true;
+  }).slice(0,4);
+}
 
 let questions = fullQuestions;
 let currentQuestion=0;
 let scores={};
 let history=[];
 let currentMode="full";
+let currentGender="all";
+
+function setGender(gender){
+  currentGender=gender;
+  document.getElementById("genderMale").classList.toggle("selected",gender==="male");
+  document.getElementById("genderFemale").classList.toggle("selected",gender==="female");
+}
 
 function initScores(){
   scores={};
@@ -643,7 +682,7 @@ function startDiagnosis(mode="full"){
   renderQuestion();
 
   if(typeof gtag === "function"){
-    gtag("event","start_diagnosis",{diagnosis_mode:mode});
+    gtag("event","start_diagnosis",{diagnosis_mode:mode,gender:currentGender});
   }
 }
 
@@ -689,6 +728,7 @@ function showResult(){
   if(typeof gtag === "function"){
     gtag("event","finish_diagnosis",{
       diagnosis_mode:currentMode,
+      gender:currentGender,
       result_type:top.name
     });
   }
@@ -724,8 +764,8 @@ function showResult(){
     <div class="score-grid">${scoreHtml}</div>
 
     <div class="ad-box">
-      <h3>このタイプに合う求人を探す</h3>
-      <p>診断結果を参考に、未経験OKの求人や転職サービスを比較してみましょう。</p>
+      <h3>このタイプに合う求人・転職サービス</h3>
+      <p>診断結果と選択した性別に合わせて、相性の良い転職サービスを表示しています。</p>
       <div class="link-grid">${links}</div>
     </div>
 
@@ -785,6 +825,7 @@ window.addEventListener("click",e=>{
   if(e.target===document.getElementById("modal"))closeModal();
 });
 
+setGender("all");
 renderTypes();
 </script>
 </body>
