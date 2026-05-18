@@ -325,6 +325,15 @@
       font-weight:900;
     }
     .affiliate-link small{display:block;color:var(--muted);font-weight:600;margin-top:4px}
+    .affiliate-link span{
+      display:inline-block;
+      font-size:11px;
+      color:#1d4ed8;
+      background:#dbeafe;
+      border-radius:999px;
+      padding:3px 8px;
+      margin:0 6px 6px 0;
+    }
 
     .type-grid{grid-template-columns:repeat(4,1fr)}
     .article-grid{grid-template-columns:repeat(3,1fr)}
@@ -602,10 +611,13 @@ function q(text,answers){return{text,answers};}
   A8、もしも、アクセストレードなどで取得したURLを入れる。
 */
 const affiliateLinks=[
-  {title:"未経験OKの求人を探す",desc:"事務・営業・IT・販売など幅広く探す",url:"https://example.com/job"},
-  {title:"転職エージェントに相談する",desc:"自分に合う求人を紹介してもらう",url:"https://example.com/agent"},
-  {title:"IT・Web系の仕事を探す",desc:"エンジニア・Webマーケ・動画編集向け",url:"https://example.com/web"},
-  {title:"適職から求人を比較する",desc:"複数サービスで条件を見比べる",url:"https://example.com/compare"}
+  {title:"未経験OKの求人を探す",desc:"事務・営業・IT・販売など幅広く比較",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+G7GTMA+3SPO+7RUL6P"},
+  {title:"自分に合う働き方を相談する",desc:"適職・転職の方向性をプロに相談",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+G9UK1E+5O7E+BXB8X"},
+  {title:"キャリアアップ求人をチェック",desc:"今より条件の良い仕事を探したい人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+GGEBOY+47GS+5ZMCH"},
+  {title:"IT・Web系の仕事を探す",desc:"在宅・Web・IT系に興味がある人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+G5OISY+3IZO+I6D3L"},
+  {title:"20代・未経験転職を探す",desc:"初めての転職や第二新卒にもおすすめ",url:"https://px.a8.net/svt/ejp?a8mat=4B3LMU+DOYXO2+5BJK+60H7L"},
+  {title:"事務・サポート系の仕事を見る",desc:"安定重視・サポート職に向いている人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+31JS36+5BJ0+5Z6WX"},
+  {title:"年収アップ転職を相談する",desc:"営業・企画・成長環境で伸ばしたい人向け",url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+2SMA0I+4BB4+62MDD"}
 ];
 
 let questions = fullQuestions;
@@ -688,7 +700,7 @@ function showResult(){
 
   const jobs=top.jobs.map(j=>`<div class="job">${j}</div>`).join("");
   const bad=top.bad.map(j=>`<div class="job">${j}</div>`).join("");
-  const links=affiliateLinks.map(l=>`<a class="affiliate-link" href="${l.url}" target="_blank" rel="nofollow sponsored noopener" onclick="trackAffiliate('${l.title}')">${l.title}<small>${l.desc}</small></a>`).join("");
+  const links=affiliateLinks.map((l,i)=>`<a class="affiliate-link" href="${l.url}" target="_blank" rel="nofollow sponsored noopener" onclick="trackAffiliate('${l.title}')"><span>おすすめ${i+1}</span>${l.title}<small>${l.desc}</small></a>`).join("");
 
   const shareText=encodeURIComponent(`私の適職診断結果は「${top.name}」でした！向いている仕事までわかって面白い。`);
   const shareUrl=encodeURIComponent(location.href);
