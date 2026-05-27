@@ -123,11 +123,8 @@
     }
 
     .hero{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:28px;
-      align-items:center;
-      padding:46px 0 36px;
+      max-width:820px;
+      padding:46px 0 20px;
     }
 
     .badge{
@@ -454,6 +451,31 @@
       margin:0 6px 6px 0;
     }
 
+
+    .affiliate-link.recommended{
+      position:relative;
+      border:2px solid var(--main);
+      background:linear-gradient(135deg,#eff6ff,#ffffff);
+      box-shadow:0 14px 30px rgba(37,99,235,.18);
+    }
+
+    .affiliate-link.recommended::before{
+      content:"最優先おすすめ";
+      display:inline-block;
+      font-size:12px;
+      color:#fff;
+      background:linear-gradient(135deg,var(--main),var(--sub));
+      border-radius:999px;
+      padding:4px 10px;
+      margin:0 8px 8px 0;
+      font-weight:950;
+    }
+
+    .affiliate-link.recommended span{
+      color:#92400e;
+      background:#fef3c7;
+    }
+
     .type-grid{grid-template-columns:repeat(4,1fr)}
     .article-grid{grid-template-columns:repeat(3,1fr)}
 
@@ -577,28 +599,6 @@
         <a class="btn btn-primary" href="#diagnosis">今すぐ診断する</a>
         <a class="btn btn-secondary" href="#types">診断タイプを見る</a>
       </div>
-    </div>
-
-    <div class="hero-card card">
-      <div class="mini-title">この診断でわかること</div>
-      <p class="section-desc">向いている仕事、避けた方がいい環境、転職で重視すべき条件、おすすめ職種を表示します。</p>
-      <div class="stat-grid">
-        <div class="stat"><strong>5/30</strong><span>簡易・本格診断</span></div>
-        <div class="stat"><strong>16</strong><span>診断タイプ</span></div>
-        <div class="stat"><strong>80+</strong><span>おすすめ職種</span></div>
-        <div class="stat"><strong>0円</strong><span>完全無料</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>仕事選びで失敗しないために</h2>
-    <p class="section-desc">人気職種ではなく、自分が無理なく続けられて成果を出しやすい環境を選ぶことが大切です。</p>
-    <div class="features">
-      <div class="feature"><div class="feature-icon">🧠</div><h3>性格から分析</h3><p>人との関わり方、集中力、安定志向、成長意欲を分析。</p></div>
-      <div class="feature"><div class="feature-icon">💼</div><h3>職種に変換</h3><p>営業、事務、IT、Web、接客、専門職などに変換。</p></div>
-      <div class="feature"><div class="feature-icon">📉</div><h3>向いてない仕事</h3><p>避けた方がいい職場環境や働き方も表示。</p></div>
-      <div class="feature"><div class="feature-icon">🚀</div><h3>転職導線</h3><p>未経験から目指しやすい方向性も確認できます。</p></div>
     </div>
   </section>
 
@@ -754,231 +754,222 @@ const shortQuestions = [
 
 function q(text,answers){return{text,answers};}
 
-const affiliateCampaigns=[
-  /*
-    gender:
-      all    = 男女どちらにも表示OK
-      female = 女性向け訴求だけに表示
-      male   = 男性向け訴求だけに表示
-    types:
-      その診断タイプで優先表示するリンク
-    priority:
-      数字が小さいほど同じ条件内で上に出る
-  */
-  {
-    id:"career_general_01",
-    title:"未経験OKの求人を幅広く見てみる",
-    desc:"事務・営業・販売・ITなど、まず選択肢を広く比較したい人向け",
+const affiliateCampaigns={
+  career_general_01:{
+    title:"まずは未経験OKの求人を見てみる",
+    desc:"職種をまだ絞り切れていない人向け。事務・営業・販売・ITなどを広く比較。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5K1O1E+529E+HW2Q9",
-    gender:["all"],
-    types:["support","stable","clerical","advisor","service","research","sales","challenge"],
-    priority:30
+    audience:"neutral"
   },
-  {
-    id:"career_general_02",
+  career_general_02:{
     title:"自分に合う仕事を相談して探す",
-    desc:"向いている仕事がまだ絞れていない人向けの転職サポート",
+    desc:"向いている仕事がまだ分からない人向け。キャリア相談・転職サポート系。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+6SP6EQ+5SN4+5YJRM",
-    gender:["all"],
-    types:["support","advisor","stable","research","clerical","service","remote"],
-    priority:20
+    audience:"neutral"
   },
-  {
-    id:"career_general_03",
+  career_general_03:{
     title:"今より条件のいい仕事を探す",
-    desc:"年収・休日・働き方を見直したい人向け",
+    desc:"年収・休日・働き方を見直したい人向け。総合転職サービス系。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+2T7PMA+10SQ+C3J0H",
-    gender:["all"],
-    types:["sales","challenge","manager","marketing","entrepreneur","stable","independent"],
-    priority:25
+    audience:"neutral"
   },
-  {
-    id:"career_woman_01",
+  career_woman_01:{
     title:"女性向けの転職サポートを見る",
-    desc:"事務・サポート・安定した働き方を探したい女性向け",
+    desc:"女性の転職・事務・サポート職・安定した働き方を探したい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5SZ642+5S0C+BXB8X",
-    gender:["female"],
-    types:["support","clerical","stable","advisor","service","research","remote"],
-    priority:5
+    audience:"female"
   },
-  {
-    id:"career_income_01",
+  career_income_01:{
     title:"年収アップを狙える求人を確認する",
-    desc:"営業・企画・成長環境で収入を伸ばしたい人向け",
+    desc:"営業・成果報酬・キャリアアップで収入を伸ばしたい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+8P60Z6+2WPG+64C3M",
-    gender:["all"],
-    types:["sales","challenge","manager","entrepreneur","marketing","independent"],
-    priority:8
+    audience:"male"
   },
-  {
-    id:"career_it_01",
+  career_it_01:{
     title:"IT・Web系の仕事をチェックする",
-    desc:"エンジニア・Web・在宅寄りの働き方に興味がある人向け",
+    desc:"エンジニア・ITサポート・Web系の仕事に興味がある人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5U61BM+5B0Y+63OYA",
-    gender:["all"],
-    types:["engineer","remote","creator","marketing","independent","specialist"],
-    priority:5
+    audience:"neutral"
   },
-  {
-    id:"career_support_01",
+  career_support_01:{
     title:"サポート職・事務系の求人を見る",
-    desc:"丁寧さや気配りを活かして働きたい人向け",
+    desc:"事務・サポート・丁寧さを活かす仕事を探したい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+8WWNUA+5UFK+5YJRM",
-    gender:["all"],
-    types:["support","clerical","stable","research","advisor"],
-    priority:10
+    audience:"female"
   },
-  {
-    id:"career_sales_01",
+  career_sales_01:{
     title:"営業・接客経験を活かせる求人を見る",
-    desc:"人と話す力や提案力を活かしたい人向け",
+    desc:"営業・販売・接客・提案力を活かしたい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+4A7AGI+5P1E+5YRHE",
-    gender:["all"],
-    types:["sales","service","advisor","manager","challenge"],
-    priority:6
+    audience:"neutral"
   },
-  {
-    id:"career_stable_01",
+  career_stable_01:{
     title:"安定して長く働ける仕事を探す",
-    desc:"休日・残業・福利厚生を重視したい人向け",
+    desc:"休日・残業・福利厚生・定着しやすさを重視したい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+728436+5PWS+5Z6WX",
-    gender:["all"],
-    types:["stable","support","clerical","research","advisor","service"],
-    priority:7
+    audience:"female"
   },
-  {
-    id:"career_woman_02",
+  career_woman_02:{
     title:"女性のキャリア相談をしてみる",
-    desc:"ライフスタイルに合う転職先を探したい女性向け",
+    desc:"ライフスタイルに合う転職先を相談しながら探したい女性向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+72TJOY+47GS+HV7V6",
-    gender:["female"],
-    types:["clerical","support","stable","service","advisor","remote"],
-    priority:6
+    audience:"female"
   },
-  {
-    id:"career_office_01",
+  career_office_01:{
     title:"事務・オフィスワーク系を探す",
-    desc:"正確さ・PCスキル・落ち着いた働き方を活かしたい人向け",
+    desc:"一般事務・営業事務・経理補助など、落ち着いた働き方を探す人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+71MOHE+5PWS+BXB8X",
-    gender:["all"],
-    types:["clerical","support","stable","research","remote"],
-    priority:4
+    audience:"female"
   },
-  {
-    id:"career_remote_01",
+  career_remote_01:{
     title:"在宅・Webスキル系の働き方を見る",
-    desc:"リモート・副業・Web系に興味がある人向け",
+    desc:"リモート・副業・Webスキルを活かす働き方に興味がある人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5RSAWI+4RPO+5YJRM",
-    gender:["all"],
-    types:["remote","creator","engineer","marketing","independent","entrepreneur"],
-    priority:4
+    audience:"neutral"
   },
-  {
-    id:"career_young_01",
+  career_young_01:{
     title:"20代・未経験向けの転職を探す",
-    desc:"初めての転職やキャリアチェンジを考えている人向け",
+    desc:"初めての転職・未経験からのキャリアチェンジを考えている人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+31JS36+5BJ0+5Z6WX",
-    gender:["all"],
-    types:["challenge","sales","support","service","advisor","stable","clerical"],
-    priority:18
+    audience:"neutral"
   },
-  {
-    id:"career_extra_general_01",
+  career_extra_general_01:{
     title:"診断結果に合う求人サービスを追加で見る",
-    desc:"未経験転職・キャリアチェンジを含めて、選択肢を広げたい人向け",
+    desc:"未経験転職・キャリアチェンジを含めて選択肢を広げたい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+GDF5O2+58IO+62ENL",
-    gender:["all"],
-    types:["support","stable","clerical","advisor","service","research","sales","challenge"],
-    priority:40
+    audience:"neutral"
   },
-  {
-    id:"career_extra_it_web_01",
+  career_extra_it_web_01:{
     title:"スキルを活かせる仕事・求人を確認する",
-    desc:"IT・Web・専門スキル・成長環境に興味がある人向け",
+    desc:"IT・Web・専門スキル・成長環境に興味がある人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+8XI3G2+5GNQ+5YZ75",
-    gender:["all"],
-    types:["engineer","creator","marketing","remote","independent","specialist","entrepreneur"],
-    priority:8
+    audience:"neutral"
   },
-  {
-    id:"career_extra_income_01",
+  career_extra_income_01:{
     title:"収入アップやキャリアアップを狙う",
-    desc:"営業・企画・成長環境・高収入を目指したい人向け",
+    desc:"営業・企画・成果主義・高収入を目指したい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+70FT9U+5V6S+5YJRM",
-    gender:["all"],
-    types:["sales","challenge","manager","marketing","entrepreneur","independent"],
-    priority:9
+    audience:"neutral"
   }
-];
-
-const affiliateRules={
-  support:["career_support_01","career_general_02","career_stable_01","career_general_01"],
-  sales:["career_sales_01","career_income_01","career_extra_income_01","career_young_01"],
-  creator:["career_remote_01","career_extra_it_web_01","career_it_01","career_general_03"],
-  engineer:["career_it_01","career_extra_it_web_01","career_remote_01","career_general_01"],
-  specialist:["career_extra_it_web_01","career_it_01","career_general_01","career_general_02"],
-  manager:["career_income_01","career_sales_01","career_extra_income_01","career_general_03"],
-  service:["career_sales_01","career_young_01","career_general_02","career_stable_01"],
-  independent:["career_remote_01","career_extra_income_01","career_extra_it_web_01","career_general_03"],
-  stable:["career_stable_01","career_general_02","career_office_01","career_general_01"],
-  marketing:["career_extra_it_web_01","career_remote_01","career_income_01","career_general_03"],
-  research:["career_office_01","career_stable_01","career_general_02","career_support_01"],
-  challenge:["career_income_01","career_extra_income_01","career_young_01","career_general_03"],
-  remote:["career_remote_01","career_it_01","career_extra_it_web_01","career_general_02"],
-  clerical:["career_office_01","career_support_01","career_stable_01","career_general_02"],
-  advisor:["career_general_02","career_sales_01","career_support_01","career_young_01"],
-  entrepreneur:["career_extra_income_01","career_remote_01","career_extra_it_web_01","career_general_03"]
 };
 
-const femalePriorityByType={
-  support:["career_woman_01"],
-  clerical:["career_woman_02","career_woman_01"],
-  stable:["career_woman_01","career_woman_02"],
-  advisor:["career_woman_02"],
-  service:["career_woman_02"],
-  remote:["career_woman_02"]
+const affiliatePlacement={
+  support:{
+    female:["career_woman_01","career_support_01","career_office_01","career_general_02"],
+    male:["career_general_02","career_general_01","career_young_01","career_general_03"],
+    all:["career_general_02","career_general_01","career_young_01","career_general_03"]
+  },
+  sales:{
+    female:["career_sales_01","career_young_01","career_general_03","career_extra_income_01"],
+    male:["career_income_01","career_sales_01","career_extra_income_01","career_general_03"],
+    all:["career_sales_01","career_extra_income_01","career_general_03","career_young_01"]
+  },
+  creator:{
+    female:["career_remote_01","career_extra_it_web_01","career_it_01","career_general_02"],
+    male:["career_remote_01","career_extra_it_web_01","career_it_01","career_general_03"],
+    all:["career_remote_01","career_extra_it_web_01","career_it_01","career_general_02"]
+  },
+  engineer:{
+    female:["career_it_01","career_extra_it_web_01","career_remote_01","career_young_01"],
+    male:["career_it_01","career_extra_it_web_01","career_remote_01","career_income_01"],
+    all:["career_it_01","career_extra_it_web_01","career_remote_01","career_young_01"]
+  },
+  specialist:{
+    female:["career_extra_it_web_01","career_general_03","career_young_01","career_general_02"],
+    male:["career_extra_it_web_01","career_general_03","career_income_01","career_young_01"],
+    all:["career_extra_it_web_01","career_general_03","career_young_01","career_general_02"]
+  },
+  manager:{
+    female:["career_general_03","career_sales_01","career_extra_income_01","career_young_01"],
+    male:["career_income_01","career_general_03","career_sales_01","career_extra_income_01"],
+    all:["career_general_03","career_sales_01","career_extra_income_01","career_young_01"]
+  },
+  service:{
+    female:["career_woman_01","career_sales_01","career_young_01","career_general_02"],
+    male:["career_sales_01","career_young_01","career_general_01","career_general_03"],
+    all:["career_sales_01","career_young_01","career_general_01","career_general_02"]
+  },
+  independent:{
+    female:["career_remote_01","career_extra_it_web_01","career_general_03","career_extra_income_01"],
+    male:["career_remote_01","career_income_01","career_extra_income_01","career_extra_it_web_01"],
+    all:["career_remote_01","career_extra_income_01","career_extra_it_web_01","career_general_03"]
+  },
+  stable:{
+    female:["career_stable_01","career_woman_01","career_office_01","career_general_02"],
+    male:["career_general_01","career_general_02","career_general_03","career_young_01"],
+    all:["career_general_01","career_general_02","career_general_03","career_young_01"]
+  },
+  marketing:{
+    female:["career_remote_01","career_extra_it_web_01","career_general_03","career_extra_income_01"],
+    male:["career_extra_income_01","career_income_01","career_remote_01","career_extra_it_web_01"],
+    all:["career_remote_01","career_extra_it_web_01","career_extra_income_01","career_general_03"]
+  },
+  research:{
+    female:["career_office_01","career_support_01","career_stable_01","career_general_02"],
+    male:["career_general_02","career_general_01","career_it_01","career_young_01"],
+    all:["career_general_02","career_general_01","career_it_01","career_young_01"]
+  },
+  challenge:{
+    female:["career_young_01","career_general_03","career_sales_01","career_extra_income_01"],
+    male:["career_income_01","career_extra_income_01","career_sales_01","career_young_01"],
+    all:["career_young_01","career_general_03","career_sales_01","career_extra_income_01"]
+  },
+  remote:{
+    female:["career_remote_01","career_office_01","career_woman_02","career_extra_it_web_01"],
+    male:["career_remote_01","career_it_01","career_extra_it_web_01","career_general_03"],
+    all:["career_remote_01","career_it_01","career_extra_it_web_01","career_general_03"]
+  },
+  clerical:{
+    female:["career_office_01","career_support_01","career_woman_01","career_stable_01"],
+    male:["career_general_01","career_general_02","career_young_01","career_general_03"],
+    all:["career_general_01","career_general_02","career_young_01","career_general_03"]
+  },
+  advisor:{
+    female:["career_woman_02","career_woman_01","career_support_01","career_general_02"],
+    male:["career_general_02","career_sales_01","career_young_01","career_general_03"],
+    all:["career_general_02","career_sales_01","career_young_01","career_general_03"]
+  },
+  entrepreneur:{
+    female:["career_remote_01","career_extra_income_01","career_extra_it_web_01","career_general_03"],
+    male:["career_income_01","career_extra_income_01","career_remote_01","career_sales_01"],
+    all:["career_extra_income_01","career_remote_01","career_extra_it_web_01","career_general_03"]
+  }
 };
 
-function canShowByGender(link){
-  if(!link)return false;
-  if(link.gender.includes("all"))return true;
-  return link.gender.includes(currentGender);
+function canShowAffiliate(campaign){
+  if(!campaign)return false;
+  if(campaign.audience==="neutral")return true;
+  return campaign.audience===currentGender;
 }
 
 function getAffiliateLinks(typeKey){
-  const byId=new Map(affiliateCampaigns.map(link=>[link.id,link]));
-  const selected=[];
-  const seen=new Set();
+  const genderKey=["male","female"].includes(currentGender)?currentGender:"all";
+  const placement=affiliatePlacement[typeKey] || {};
+  const primaryIds=placement[genderKey] || placement.all || [];
+  const fallbackIds=[
+    "career_general_02",
+    "career_general_01",
+    "career_young_01",
+    "career_general_03",
+    "career_it_01",
+    "career_remote_01"
+  ];
 
-  function addById(id){
-    const link=byId.get(id);
-    if(!link || seen.has(link.id) || !canShowByGender(link))return;
-    selected.push(link);
-    seen.add(link.id);
-  }
+  const result=[];
+  const seenUrl=new Set();
 
-  // 女性を選んだ場合だけ、女性向けリンクを自然なタイプに先頭追加。
-  if(currentGender==="female"){
-    (femalePriorityByType[typeKey] || []).forEach(addById);
-  }
+  [...primaryIds,...fallbackIds].forEach(id=>{
+    if(result.length>=2)return;
+    const campaign=affiliateCampaigns[id];
+    if(!canShowAffiliate(campaign))return;
+    if(seenUrl.has(campaign.url))return;
+    seenUrl.add(campaign.url);
+    result.push(campaign);
+  });
 
-  // 診断タイプごとの本命リンクを優先表示。
-  (affiliateRules[typeKey] || []).forEach(addById);
-
-  // 4件に足りない場合だけ、同じタイプに紐づくリンクから補完。
-  affiliateCampaigns
-    .filter(link=>link.types.includes(typeKey) && canShowByGender(link))
-    .sort((a,b)=>(a.priority||99)-(b.priority||99))
-    .forEach(link=>addById(link.id));
-
-  // それでも足りない場合の安全な汎用補完。女性専用は混ぜない。
-  affiliateCampaigns
-    .filter(link=>link.gender.includes("all"))
-    .sort((a,b)=>(a.priority||99)-(b.priority||99))
-    .forEach(link=>addById(link.id));
-
-  return selected.slice(0,4);
+  return result;
 }
+
 
 let questions = fullQuestions;
 let currentQuestion=0;
@@ -1054,7 +1045,6 @@ function showResult(){
   const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
   const topKey=sorted[0][0];
   const top=types[topKey];
-  const maxScore=Math.max(...Object.values(scores));
   const matchPercent=Math.min(98,Math.max(72,Math.round((scores[topKey]/(questions.length*2))*100+45)));
 
   if(typeof gtag === "function"){
@@ -1065,15 +1055,10 @@ function showResult(){
     });
   }
 
-  const scoreHtml=sorted.slice(0,6).map(([key,value])=>{
-    const p=maxScore===0?0:Math.round((value/maxScore)*100);
-    return `<div class="score-card"><strong><span>${types[key].name}</span><span>${p}%</span></strong><div class="score-line"><span style="width:${p}%"></span></div></div>`;
-  }).join("");
-
   const jobs=top.jobs.map(j=>`<div class="job">${j}</div>`).join("");
   const bad=top.bad.map(j=>`<div class="job">${j}</div>`).join("");
   const affiliateLinks=getAffiliateLinks(topKey);
-  const links=affiliateLinks.map((l,i)=>`<a class="affiliate-link" href="${l.url}" target="_blank" rel="nofollow sponsored noopener" onclick="trackAffiliate('${l.title}')"><span>おすすめ${i+1}</span>${l.title}<small>${l.desc}</small></a>`).join("");
+  const links=affiliateLinks.map((l,i)=>`<a class="affiliate-link ${i===0?'recommended':''}" href="${l.url}" target="_blank" rel="nofollow sponsored noopener" onclick="trackAffiliate('${l.title}')"><span>${i===0?'一番おすすめ':'おすすめ2'}</span>${l.title}<small>${l.desc}</small></a>`).join("");
 
   const shareText=encodeURIComponent(`私の適職診断結果は「${top.name}」でした！向いている仕事までわかって面白い。`);
   const shareUrl=encodeURIComponent(location.href);
@@ -1093,12 +1078,9 @@ function showResult(){
     <h3>仕事選びのアドバイス</h3>
     <p class="section-desc">${top.advice}</p>
 
-    <h3>あなたの傾向スコア</h3>
-    <div class="score-grid">${scoreHtml}</div>
-
     <div class="ad-box">
-      <h3>このタイプに合う求人・転職サービス</h3>
-      <p>診断結果と選択した性別に合わせて、相性の良い転職サービスを表示しています。</p>
+      <h3>このタイプに一番合うおすすめサービス</h3>
+      <p>診断結果に合わせて、相性が高いものだけを2つに絞って表示しています。迷ったら一番上がおすすめです。</p>
       <div class="link-grid">${links}</div>
     </div>
 
