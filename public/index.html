@@ -719,12 +719,12 @@ const resultGroups = {
     advice:"年収アップを狙うなら、商材・評価制度・固定給と歩合のバランスを確認しましょう。"
   },
   itWeb:{
-    name:"IT・Webスキル型",
-    catch:"仕組みを理解して、スキルでキャリアを伸ばすタイプ",
-    desc:"ITサポート・Web制作・エンジニア・データ系など、知識やスキルが積み上がる仕事と相性が良いです。未経験の場合は、研修付きやサポート職から入るのも現実的です。",
-    jobs:["ITサポート","Webエンジニア","データ分析補助"],
-    bad:["感情論が多い職場","毎日接客中心の仕事","スキルが残りにくい仕事"],
-    advice:"未経験なら、研修・ポートフォリオ・配属先の仕事内容を必ず確認しましょう。"
+    name:"専門・分析サポート型",
+    catch:"落ち着いて考え、正確さや理解力を活かすタイプ",
+    desc:"ITスクールや専門スクールにいきなり誘導するより、まずは未経験OKの転職エージェントで、研修あり・サポート職・事務系など現実的に応募できる求人を比較するのがおすすめです。",
+    jobs:["ITサポート","事務サポート","データ入力・分析補助"],
+    bad:["感情論が多い職場","毎日接客中心の仕事","教育体制がない仕事"],
+    advice:"未経験なら、スクールより先に求人・研修制度・配属先の仕事内容を確認しましょう。"
   },
   creativeRemote:{
     name:"在宅・クリエイティブ型",
@@ -820,9 +820,14 @@ const affiliateCampaigns={
     desc:"向いている仕事がまだ曖昧な人向け。職種選びから相談しやすい総合サポート。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+6SP6EQ+5SN4+5YJRM"
   },
+  agent_beginner:{
+    title:"未経験OKの転職エージェントを見る",
+    desc:"経験に自信がない人向け。未経験歓迎・研修ありの求人を相談しながら探せます。",
+    url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+31JS36+5BJ0+5Z6WX"
+  },
   agent_general:{
     title:"未経験OKの求人をまとめて見る",
-    desc:"事務・営業・販売・ITなど、未経験から応募しやすい求人を広く比較。",
+    desc:"事務・営業・販売・サポート職など、未経験から応募しやすい求人を広く比較。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5K1O1E+529E+HW2Q9"
   },
   agent_condition:{
@@ -835,35 +840,15 @@ const affiliateCampaigns={
     desc:"営業・成果評価・キャリアアップで収入を伸ばしたい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+8P60Z6+2WPG+64C3M"
   },
-  agent_it:{
-    title:"IT・Web系の仕事をチェックする",
-    desc:"ITサポート・Web系・エンジニア系に興味がある人向け。",
-    url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5U61BM+5B0Y+63OYA"
-  },
   agent_sales:{
     title:"営業・接客経験を活かせる求人を見る",
     desc:"営業・販売・接客・提案力を活かして転職したい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+4A7AGI+5P1E+5YRHE"
   },
-  agent_remote:{
-    title:"在宅・Webスキル系の働き方を見る",
-    desc:"リモート・副業・Webスキルを活かす働き方に興味がある人向け。",
-    url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5RSAWI+4RPO+5YJRM"
-  },
-  agent_young:{
-    title:"20代・未経験向けの転職を探す",
-    desc:"初めての転職や未経験からのキャリアチェンジを考えている人向け。",
-    url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+31JS36+5BJ0+5Z6WX"
-  },
   agent_extra_general:{
     title:"診断結果に合う求人サービスを追加で見る",
     desc:"未経験転職・キャリアチェンジを含めて選択肢を広げたい人向け。",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+GDF5O2+58IO+62ENL"
-  },
-  agent_extra_it:{
-    title:"スキルを活かせる仕事を確認する",
-    desc:"IT・Web・専門スキル・成長環境に興味がある人向け。",
-    url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+8XI3G2+5GNQ+5YZ75"
   },
   agent_extra_income:{
     title:"収入アップやキャリアアップを狙う",
@@ -873,10 +858,10 @@ const affiliateCampaigns={
 };
 
 const affiliatePlacement={
-  stableSupport:["agent_consult","agent_general"],
+  stableSupport:["agent_consult","agent_beginner"],
   salesIncome:["agent_income","agent_sales"],
-  itWeb:["agent_it","agent_extra_it"],
-  creativeRemote:["agent_remote","agent_extra_it"],
+  itWeb:["agent_beginner","agent_consult"],
+  creativeRemote:["agent_beginner","agent_extra_general"],
   serviceAdvisor:["agent_sales","agent_consult"],
   challengeFree:["agent_extra_income","agent_condition"]
 };
@@ -885,9 +870,9 @@ function getAffiliateLinks(resultKey){
   const primaryIds=affiliatePlacement[resultKey] || [];
   const fallbackIds=[
     "agent_consult",
+    "agent_beginner",
     "agent_general",
-    "agent_condition",
-    "agent_young"
+    "agent_condition"
   ];
 
   const result=[];
