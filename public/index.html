@@ -755,161 +755,229 @@ const shortQuestions = [
 function q(text,answers){return{text,answers};}
 
 const affiliateCampaigns=[
+  /*
+    gender:
+      all    = 男女どちらにも表示OK
+      female = 女性向け訴求だけに表示
+      male   = 男性向け訴求だけに表示
+    types:
+      その診断タイプで優先表示するリンク
+    priority:
+      数字が小さいほど同じ条件内で上に出る
+  */
   {
     id:"career_general_01",
-    title:"まずは未経験OKの求人を見てみる",
-    desc:"事務・営業・販売・ITなど、幅広い職種を比較したい人向け",
+    title:"未経験OKの求人を幅広く見てみる",
+    desc:"事務・営業・販売・ITなど、まず選択肢を広く比較したい人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5K1O1E+529E+HW2Q9",
-    gender:["male","female","all"],
-    types:["support","stable","clerical","advisor","service","research"]
+    gender:["all"],
+    types:["support","stable","clerical","advisor","service","research","sales","challenge"],
+    priority:30
   },
   {
     id:"career_general_02",
     title:"自分に合う仕事を相談して探す",
     desc:"向いている仕事がまだ絞れていない人向けの転職サポート",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+6SP6EQ+5SN4+5YJRM",
-    gender:["male","female","all"],
-    types:["support","advisor","stable","research","clerical","service"]
+    gender:["all"],
+    types:["support","advisor","stable","research","clerical","service","remote"],
+    priority:20
   },
   {
     id:"career_general_03",
     title:"今より条件のいい仕事を探す",
     desc:"年収・休日・働き方を見直したい人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+2T7PMA+10SQ+C3J0H",
-    gender:["male","female","all"],
-    types:["sales","challenge","manager","marketing","entrepreneur","stable"]
+    gender:["all"],
+    types:["sales","challenge","manager","marketing","entrepreneur","stable","independent"],
+    priority:25
   },
   {
     id:"career_woman_01",
     title:"女性向けの転職サポートを見る",
-    desc:"事務・サポート・安定した働き方を探したい人向け",
+    desc:"事務・サポート・安定した働き方を探したい女性向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5SZ642+5S0C+BXB8X",
-    gender:["female","all"],
-    types:["support","clerical","stable","advisor","service","research"]
+    gender:["female"],
+    types:["support","clerical","stable","advisor","service","research","remote"],
+    priority:5
   },
   {
     id:"career_income_01",
     title:"年収アップを狙える求人を確認する",
     desc:"営業・企画・成長環境で収入を伸ばしたい人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+8P60Z6+2WPG+64C3M",
-    gender:["male","all"],
-    types:["sales","challenge","manager","entrepreneur","marketing"]
+    gender:["all"],
+    types:["sales","challenge","manager","entrepreneur","marketing","independent"],
+    priority:8
   },
   {
     id:"career_it_01",
     title:"IT・Web系の仕事をチェックする",
     desc:"エンジニア・Web・在宅寄りの働き方に興味がある人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5U61BM+5B0Y+63OYA",
-    gender:["male","female","all"],
-    types:["engineer","remote","creator","marketing","independent"]
+    gender:["all"],
+    types:["engineer","remote","creator","marketing","independent","specialist"],
+    priority:5
   },
   {
     id:"career_support_01",
     title:"サポート職・事務系の求人を見る",
     desc:"丁寧さや気配りを活かして働きたい人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+8WWNUA+5UFK+5YJRM",
-    gender:["female","all"],
-    types:["support","clerical","stable","research","advisor"]
+    gender:["all"],
+    types:["support","clerical","stable","research","advisor"],
+    priority:10
   },
   {
     id:"career_sales_01",
     title:"営業・接客経験を活かせる求人を見る",
     desc:"人と話す力や提案力を活かしたい人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+4A7AGI+5P1E+5YRHE",
-    gender:["male","female","all"],
-    types:["sales","service","advisor","manager","challenge"]
+    gender:["all"],
+    types:["sales","service","advisor","manager","challenge"],
+    priority:6
   },
   {
     id:"career_stable_01",
     title:"安定して長く働ける仕事を探す",
     desc:"休日・残業・福利厚生を重視したい人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+728436+5PWS+5Z6WX",
-    gender:["female","all"],
-    types:["stable","support","clerical","research","advisor","service"]
+    gender:["all"],
+    types:["stable","support","clerical","research","advisor","service"],
+    priority:7
   },
   {
     id:"career_woman_02",
     title:"女性のキャリア相談をしてみる",
-    desc:"ライフスタイルに合う転職先を探したい人向け",
+    desc:"ライフスタイルに合う転職先を探したい女性向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+72TJOY+47GS+HV7V6",
-    gender:["female","all"],
-    types:["clerical","support","stable","service","advisor","remote"]
+    gender:["female"],
+    types:["clerical","support","stable","service","advisor","remote"],
+    priority:6
   },
   {
     id:"career_office_01",
     title:"事務・オフィスワーク系を探す",
     desc:"正確さ・PCスキル・落ち着いた働き方を活かしたい人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+71MOHE+5PWS+BXB8X",
-    gender:["female","all"],
-    types:["clerical","support","stable","research","remote"]
+    gender:["all"],
+    types:["clerical","support","stable","research","remote"],
+    priority:4
   },
   {
     id:"career_remote_01",
     title:"在宅・Webスキル系の働き方を見る",
     desc:"リモート・副業・Web系に興味がある人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+5RSAWI+4RPO+5YJRM",
-    gender:["male","female","all"],
-    types:["remote","creator","engineer","marketing","independent","entrepreneur"]
+    gender:["all"],
+    types:["remote","creator","engineer","marketing","independent","entrepreneur"],
+    priority:4
   },
   {
     id:"career_young_01",
     title:"20代・未経験向けの転職を探す",
     desc:"初めての転職やキャリアチェンジを考えている人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+31JS36+5BJ0+5Z6WX",
-    gender:["male","female","all"],
-    types:["challenge","sales","support","service","advisor","stable","clerical"]
+    gender:["all"],
+    types:["challenge","sales","support","service","advisor","stable","clerical"],
+    priority:18
   },
   {
     id:"career_extra_general_01",
     title:"診断結果に合う求人サービスを追加で見る",
     desc:"未経験転職・キャリアチェンジを含めて、選択肢を広げたい人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3QB0+GDF5O2+58IO+62ENL",
-    gender:["male","female","all"],
-    types:["support","stable","clerical","advisor","service","research","sales","challenge"]
+    gender:["all"],
+    types:["support","stable","clerical","advisor","service","research","sales","challenge"],
+    priority:40
   },
   {
     id:"career_extra_it_web_01",
     title:"スキルを活かせる仕事・求人を確認する",
     desc:"IT・Web・専門スキル・成長環境に興味がある人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+8XI3G2+5GNQ+5YZ75",
-    gender:["male","female","all"],
-    types:["engineer","creator","marketing","remote","independent","specialist","entrepreneur"]
+    gender:["all"],
+    types:["engineer","creator","marketing","remote","independent","specialist","entrepreneur"],
+    priority:8
   },
   {
     id:"career_extra_income_01",
     title:"収入アップやキャリアアップを狙う",
     desc:"営業・企画・成長環境・高収入を目指したい人向け",
     url:"https://px.a8.net/svt/ejp?a8mat=4B3TF7+70FT9U+5V6S+5YJRM",
-    gender:["male","female","all"],
-    types:["sales","challenge","manager","marketing","entrepreneur","independent"]
+    gender:["all"],
+    types:["sales","challenge","manager","marketing","entrepreneur","independent"],
+    priority:9
   }
 ];
 
+const affiliateRules={
+  support:["career_support_01","career_general_02","career_stable_01","career_general_01"],
+  sales:["career_sales_01","career_income_01","career_extra_income_01","career_young_01"],
+  creator:["career_remote_01","career_extra_it_web_01","career_it_01","career_general_03"],
+  engineer:["career_it_01","career_extra_it_web_01","career_remote_01","career_general_01"],
+  specialist:["career_extra_it_web_01","career_it_01","career_general_01","career_general_02"],
+  manager:["career_income_01","career_sales_01","career_extra_income_01","career_general_03"],
+  service:["career_sales_01","career_young_01","career_general_02","career_stable_01"],
+  independent:["career_remote_01","career_extra_income_01","career_extra_it_web_01","career_general_03"],
+  stable:["career_stable_01","career_general_02","career_office_01","career_general_01"],
+  marketing:["career_extra_it_web_01","career_remote_01","career_income_01","career_general_03"],
+  research:["career_office_01","career_stable_01","career_general_02","career_support_01"],
+  challenge:["career_income_01","career_extra_income_01","career_young_01","career_general_03"],
+  remote:["career_remote_01","career_it_01","career_extra_it_web_01","career_general_02"],
+  clerical:["career_office_01","career_support_01","career_stable_01","career_general_02"],
+  advisor:["career_general_02","career_sales_01","career_support_01","career_young_01"],
+  entrepreneur:["career_extra_income_01","career_remote_01","career_extra_it_web_01","career_general_03"]
+};
+
+const femalePriorityByType={
+  support:["career_woman_01"],
+  clerical:["career_woman_02","career_woman_01"],
+  stable:["career_woman_01","career_woman_02"],
+  advisor:["career_woman_02"],
+  service:["career_woman_02"],
+  remote:["career_woman_02"]
+};
+
+function canShowByGender(link){
+  if(!link)return false;
+  if(link.gender.includes("all"))return true;
+  return link.gender.includes(currentGender);
+}
+
 function getAffiliateLinks(typeKey){
-  const genderRank = l => {
-    if(l.gender.includes(currentGender)) return 0;
-    if(l.gender.includes("all")) return 1;
-    return 2;
-  };
+  const byId=new Map(affiliateCampaigns.map(link=>[link.id,link]));
+  const selected=[];
+  const seen=new Set();
 
-  const typeRank = l => l.types.includes(typeKey) ? 0 : 1;
+  function addById(id){
+    const link=byId.get(id);
+    if(!link || seen.has(link.id) || !canShowByGender(link))return;
+    selected.push(link);
+    seen.add(link.id);
+  }
 
-  const sortedLinks=[...affiliateCampaigns].sort((a,b)=>{
-    const aRank = typeRank(a) + genderRank(a);
-    const bRank = typeRank(b) + genderRank(b);
-    return aRank - bRank;
-  });
+  // 女性を選んだ場合だけ、女性向けリンクを自然なタイプに先頭追加。
+  if(currentGender==="female"){
+    (femalePriorityByType[typeKey] || []).forEach(addById);
+  }
 
-  const seenUrl=new Set();
-  const seenId=new Set();
+  // 診断タイプごとの本命リンクを優先表示。
+  (affiliateRules[typeKey] || []).forEach(addById);
 
-  return sortedLinks.filter(l=>{
-    if(seenId.has(l.id))return false;
-    if(seenUrl.has(l.url))return false;
-    seenId.add(l.id);
-    seenUrl.add(l.url);
-    return true;
-  }).slice(0,4);
+  // 4件に足りない場合だけ、同じタイプに紐づくリンクから補完。
+  affiliateCampaigns
+    .filter(link=>link.types.includes(typeKey) && canShowByGender(link))
+    .sort((a,b)=>(a.priority||99)-(b.priority||99))
+    .forEach(link=>addById(link.id));
+
+  // それでも足りない場合の安全な汎用補完。女性専用は混ぜない。
+  affiliateCampaigns
+    .filter(link=>link.gender.includes("all"))
+    .sort((a,b)=>(a.priority||99)-(b.priority||99))
+    .forEach(link=>addById(link.id));
+
+  return selected.slice(0,4);
 }
 
 let questions = fullQuestions;
